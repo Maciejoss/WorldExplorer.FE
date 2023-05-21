@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { CoutnriesInfoProvidingSystem } from '../Geography/Services/CountriesInfoProvidingService';
-import { Country } from '../Geography/Models/Country';
+import { CoutnriesInfoProvidingSystem } from '../Services/CountriesInfoProvidingService';
+import { Country } from '../Models/Country';
 
 export enum PageState {
   InitialForm,
@@ -15,22 +15,26 @@ export enum PageState {
 })
 export class HomePageComponent {
   public PageStateEnum = PageState;
+  public continentName:String ="";
 
   pageState:PageState = PageState.InitialForm;
   countriesInfo:Country[] =[];
 
-  async handleFormSubmit(eventData: [String, Number]){
+  async handleFormSubmit(eventData: [String,String, Number]){
     this.pageState = PageState.LoadingData;
-    await this.LoadCountriesInfo(eventData[0],eventData[1]);
+    await this.LoadCountriesInfo(eventData[0],eventData[1],eventData[2]);
     this.pageState = PageState.DisplayCountriesInfo;;
   }
 
-  async LoadCountriesInfo(continentCode:String, countriesCount:Number){
+  async LoadCountriesInfo(continentCode:String,continentName:String, countriesCount:Number){
+    this.continentName = continentName;
     let countriesInfoProvidingService = new CoutnriesInfoProvidingSystem();
     let countries = await countriesInfoProvidingService.GetContriesInfo(continentCode,countriesCount);
     this.countriesInfo = countries;
   }
 
-
+  GoBackToForm(){
+    this.pageState=PageState.InitialForm;
+  }
 
 }

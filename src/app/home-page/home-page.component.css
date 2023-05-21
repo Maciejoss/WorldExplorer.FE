@@ -9,9 +9,17 @@ header {
   background-color: #f2f2f2;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 100px auto;
-  max-width: 400px;
+  margin: 50px auto;
+  max-width: 550px;
   padding: 20px;
   text-align: center;
+}
+
+.go-back-button{
+  align-items: flex-start;
+  width: max-content;
+  align-self:flex-start;
+  margin-bottom: 50px;
+  opacity: 0.5;
 }
 

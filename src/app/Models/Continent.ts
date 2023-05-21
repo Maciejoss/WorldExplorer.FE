@@ -1,6 +1,6 @@
 export class Continent{
-  public Name:String;
-  public Code:String;
+  public Name:string;
+  public Code:string;
 
   constructor(response:any) {
     this.Name = response.name;

@@ -1,0 +1,43 @@
+<mat-card class="country-card">
+  <mat-card-header>
+    <mat-card-title>{{country.OfficialName ?? 'No information'}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="card-item">
+      <div class="label">Capital:</div>
+      <div class="value">{{ country.Capital ?? 'No information'}}</div>
+    </div>
+    <div class="card-item">
+      <div class="label">Population:</div>
+      <div class="value">{{ country.Population ?? 'No information'}}</div>
+    </div>
+    <div class="card-item">
+      <div class="label">Currencies:</div>
+      <div class="value">
+        <ng-container *ngIf="country.Currencies && country.Currencies.length > 0; else noInfo">
+          <ng-container *ngFor="let currency of country.Currencies;last as isLast">
+            {{ currency.Name }} ({{ currency.Symbol }}){{ isLast ? '' : ', ' }}
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+    <div class="card-item">
+      <div class="label">Subregion:</div>
+      <div class="value">{{ country.Subregion ?? 'No information'}}</div>
+    </div>
+    <div class="card-item">
+      <div class="label">Languages:</div>
+      <div class="value">
+        <ng-container *ngIf="country.Languages && country.Languages.length > 0; else noInfo">
+          <ng-container *ngFor="let language of country.Languages; last as isLast">
+            {{ language }}{{ isLast ? '' : ', ' }}
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<ng-template #noInfo>
+  No information
+</ng-template>

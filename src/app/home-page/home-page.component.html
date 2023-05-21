@@ -4,7 +4,11 @@
 
 <main>
   <div class="card">
-    <h2>Explore the world</h2>
+    <div class="go-back-button" *ngIf="pageState===PageStateEnum.DisplayCountriesInfo"> <button mat-flat-button (click)="GoBackToForm()"><-- Go back</button></div>
+    <h2>
+      <div *ngIf="pageState===PageStateEnum.InitialForm">Explore the world</div>
+      <div *ngIf="pageState===PageStateEnum.DisplayCountriesInfo">{{continentName}}</div>
+    </h2>
     <api-form *ngIf="pageState===PageStateEnum.InitialForm || pageState===PageStateEnum.LoadingData" (SubmitForm)="handleFormSubmit($event)"></api-form>
     <mat-progress-bar mode="indeterminate" *ngIf="pageState===PageStateEnum.LoadingData"></mat-progress-bar>
 
