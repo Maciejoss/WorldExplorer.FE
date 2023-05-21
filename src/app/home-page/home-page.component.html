@@ -5,6 +5,9 @@
 <main>
   <div class="card">
     <h2>Explore the world</h2>
-    <api-form></api-form>
+    <api-form *ngIf="pageState===PageStateEnum.InitialForm || pageState===PageStateEnum.LoadingData" (SubmitForm)="handleFormSubmit($event)"></api-form>
+    <mat-progress-bar mode="indeterminate" *ngIf="pageState===PageStateEnum.LoadingData"></mat-progress-bar>
+
+    <countries-info-display *ngIf="pageState===PageStateEnum.DisplayCountriesInfo" [countries]="countriesInfo"></countries-info-display>
   </div>
 </main>
