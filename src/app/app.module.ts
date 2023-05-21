@@ -12,6 +12,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { CountriesInfoDisplayComponent } from './home-page/countries-info-display/countries-info-display.component';
+import { SingleCountryDisplayComponent } from './home-page/countries-info-display/single-country-display/single-country-display.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { CountriesInfoDisplayComponent } from './home-page/countries-info-displa
     HomePageComponent,
     ApiFormComponent,
     CountriesInfoDisplayComponent,
+    SingleCountryDisplayComponent,
 
   ],
   imports: [
@@ -30,7 +33,8 @@ import { CountriesInfoDisplayComponent } from './home-page/countries-info-displa
     ReactiveFormsModule,
     FormsModule,
     MatButtonModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

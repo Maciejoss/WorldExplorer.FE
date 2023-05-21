@@ -1,7 +1,5 @@
 <div class="row">
   <div class="card" *ngFor="let country of countries">
-    <div class="card-body">
-      {{ country.Name.Official }}
-    </div>
+    <single-country-display [country]=country></single-country-display>
   </div>
 </div>

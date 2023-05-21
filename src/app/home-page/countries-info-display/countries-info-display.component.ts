@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Country } from 'src/app/Geography/Models/Country';
+import { Country } from 'src/app/Models/Country';
 
 @Component({
   selector: 'countries-info-display',

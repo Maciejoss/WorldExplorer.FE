@@ -1,22 +1,22 @@
 <form>
 
   <mat-form-field id="select">
-    <mat-label>Select an option</mat-label>
-    <mat-select [formControl]="selectedOption">
+    <mat-label>Select continent to explore</mat-label>
+    <mat-select (valueChange)="EnableButton()" [formControl]="selectedOption">
       <mat-option *ngFor="let option of options" [value]="option">{{ option }}</mat-option>
     </mat-select>
   </mat-form-field>
 
 
-  <div class="example-label-container">
-    <label id="example-name-label" class="example-name-label">Value</label>
-    <label class="example-value-label">{{selectedValue}}</label>
+  <div class="label-container">
+    <label id="name-label" class="name-label">Number of countries to display: </label>
+    <label class="value-label">{{selectedValue}}</label>
   </div>
 
   <mat-slider [min]="2" [max]="10" [step]="1" [showTickMarks]="true">
     <input name="slider" matSliderThumb [(ngModel)]="selectedValue">
   </mat-slider>
 
-  <button mat-raised-button color="primary" (click)="OnClick()" >Submit</button>
+  <button [disabled]="!buttonEnabled" mat-raised-button color="primary" (click)="OnClick()" >Search For Countries</button>
 
 </form>
